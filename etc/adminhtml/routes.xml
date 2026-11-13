@@ -1,4 +1,12 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2026 Bruna Sebold
+ *
+ * @author  Bruna Sebold <sebold.bruna@gmail.com>
+ * @license https://opensource.org/licenses/MIT MIT License
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
         <route id="bs_csp" frontName="bs_csp">

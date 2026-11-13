@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright (c) 2026 Bruna Sebold
+ *
+ * @author  Bruna Sebold <sebold.bruna@gmail.com>
+ * @license https://opensource.org/licenses/MIT MIT License
+ */
+-->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
          bootstrap="Test/bootstrap.php"
