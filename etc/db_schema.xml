@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bs_csp_whitelist" resource="default" engine="innodb" comment="CSP whitelist hosts">
+        <column xsi:type="int" name="whitelist_id" unsigned="true" nullable="false" identity="true" comment="Whitelist ID"/>
+        <column xsi:type="varchar" name="policy_id" nullable="false" length="64" comment="CSP directive"/>
+        <column xsi:type="varchar" name="host" nullable="false" length="255" comment="Allowed host"/>
+        <column xsi:type="varchar" name="area" nullable="false" length="32" default="global" comment="frontend, adminhtml or global"/>
+        <column xsi:type="smallint" name="is_active" unsigned="true" nullable="false" default="1" comment="Is active"/>
+        <column xsi:type="varchar" name="note" nullable="true" length="255" comment="Admin note"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created at"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="whitelist_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="BS_CSP_WHITELIST_POLICY_HOST_AREA">
+            <column name="policy_id"/>
+            <column name="host"/>
+            <column name="area"/>
+        </constraint>
+        <index referenceId="BS_CSP_WHITELIST_ACTIVE_AREA" indexType="btree">
+            <column name="is_active"/>
+            <column name="area"/>
+        </index>
+    </table>
+</schema>

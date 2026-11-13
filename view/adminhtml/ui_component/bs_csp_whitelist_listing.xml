@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">bs_csp_whitelist_listing.bs_csp_whitelist_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add Host</label>
+            </button>
+        </buttons>
+        <spinner>bs_csp_whitelist_columns</spinner>
+        <deps>
+            <dep>bs_csp_whitelist_listing.bs_csp_whitelist_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="bs_csp_whitelist_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">whitelist_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>BS_MagentoCsp::whitelist</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="bs_csp_whitelist_listing_data_source">
+            <settings>
+                <requestFieldName>whitelist_id</requestFieldName>
+                <primaryFieldName>whitelist_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Remove the selected hosts from the policy?</message>
+                        <title translate="true">Delete hosts</title>
+                    </confirm>
+                    <url path="bs_csp/whitelist/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+            <action name="enable">
+                <settings>
+                    <url path="bs_csp/whitelist/massStatus">
+                        <param name="status">1</param>
+                    </url>
+                    <type>enable</type>
+                    <label translate="true">Enable</label>
+                </settings>
+            </action>
+            <action name="disable">
+                <settings>
+                    <url path="bs_csp/whitelist/massStatus">
+                        <param name="status">0</param>
+                    </url>
+                    <type>disable</type>
+                    <label translate="true">Disable</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+        <filters name="listing_filters"/>
+    </listingToolbar>
+    <columns name="bs_csp_whitelist_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>whitelist_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="whitelist_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="policy_id" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="BS\MagentoCsp\Model\Source\Policy"/>
+                <dataType>select</dataType>
+                <label translate="true">Directive</label>
+            </settings>
+        </column>
+        <column name="host">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Host</label>
+            </settings>
+        </column>
+        <column name="area" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="BS\MagentoCsp\Model\Source\Area"/>
+                <dataType>select</dataType>
+                <label translate="true">Area</label>
+            </settings>
+        </column>
+        <column name="is_active" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="BS\MagentoCsp\Model\Source\Enabled"/>
+                <dataType>select</dataType>
+                <label translate="true">Active</label>
+            </settings>
+        </column>
+        <column name="note">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Note</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="BS\MagentoCsp\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>whitelist_id</indexField>
+                <label translate="true">Actions</label>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

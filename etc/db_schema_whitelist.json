@@ -1,0 +1,21 @@
+{
+    "bs_csp_whitelist": {
+        "column": {
+            "whitelist_id": true,
+            "policy_id": true,
+            "host": true,
+            "area": true,
+            "is_active": true,
+            "note": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "BS_CSP_WHITELIST_ACTIVE_AREA": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BS_CSP_WHITELIST_POLICY_HOST_AREA": true
+        }
+    }
+}
