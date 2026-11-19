@@ -19,11 +19,12 @@ use BS\MagentoCsp\Model\Validation\WhitelistEntry;
 use BS\MagentoCsp\Model\Whitelist as WhitelistModel;
 use BS\MagentoCsp\Model\WhitelistFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 
-class Save extends Whitelist
+class Save extends Whitelist implements HttpPostActionInterface
 {
     public function __construct(
         Context $context,

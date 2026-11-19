@@ -15,9 +15,10 @@ use BS\MagentoCsp\Controller\Adminhtml\Whitelist;
 use BS\MagentoCsp\Model\ResourceModel\Whitelist as WhitelistResource;
 use BS\MagentoCsp\Model\WhitelistFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Psr\Log\LoggerInterface;
 
-class Delete extends Whitelist
+class Delete extends Whitelist implements HttpPostActionInterface
 {
     public function __construct(
         Context $context,

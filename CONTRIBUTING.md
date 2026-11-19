@@ -1,6 +1,6 @@
 # Contributing
 
-The unit tests and PHP_CodeSniffer do not boot Magento.
+The unit tests and PHP_CodeSniffer do not boot Magento. `Test/Double` stands in for the Magento and PSR types the collector and cache tests construct when those packages are not installed.
 
 ```bash
 phpunit -c phpunit.xml.dist

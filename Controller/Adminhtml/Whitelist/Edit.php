@@ -15,9 +15,10 @@ use BS\MagentoCsp\Controller\Adminhtml\Whitelist;
 use BS\MagentoCsp\Model\ResourceModel\Whitelist as WhitelistResource;
 use BS\MagentoCsp\Model\WhitelistFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 
-class Edit extends Whitelist
+class Edit extends Whitelist implements HttpGetActionInterface
 {
     public function __construct(
         Context $context,

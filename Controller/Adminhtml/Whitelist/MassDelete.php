@@ -16,11 +16,12 @@ use BS\MagentoCsp\Model\ResourceModel\Whitelist as WhitelistResource;
 use BS\MagentoCsp\Model\ResourceModel\Whitelist\Grid\CollectionFactory;
 use BS\MagentoCsp\Model\WhitelistFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Ui\Component\MassAction\Filter;
 use Psr\Log\LoggerInterface;
 
-class MassDelete extends Whitelist
+class MassDelete extends Whitelist implements HttpPostActionInterface
 {
     public function __construct(
         Context $context,
@@ -59,7 +60,13 @@ class MassDelete extends Whitelist
             return $redirect;
         }
 
-        if ($deleted) {
+        if ($deleted === 1) {
+            $this->messageManager->addSuccessMessage(
+                __(
+                    'The host was removed. Refresh the full page cache so cached pages send the new policy.'
+                )
+            );
+        } elseif ($deleted > 1) {
             $this->messageManager->addSuccessMessage(
                 __(
                     '%1 hosts were removed. Refresh the full page cache so cached pages send the new policy.',

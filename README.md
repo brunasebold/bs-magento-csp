@@ -1,5 +1,7 @@
 # BS_MagentoCsp
 
+[![CI](https://github.com/brunasebold/bs-magento-csp/actions/workflows/ci.yml/badge.svg)](https://github.com/brunasebold/bs-magento-csp/actions/workflows/ci.yml)
+
 Manage Content Security Policy hosts from the Magento admin. The store sends them on the CSP header without a deploy and without editing `csp_whitelist.xml`.
 
 ## What it does
@@ -86,7 +88,7 @@ The directives in the admin are the fetch directives `Magento_Csp` supports on M
 
 ## Tests
 
-The unit tests cover the host format, the stored row, which area receives which host, and the admin form payload. They do not boot Magento, so they run without `repo.magento.com` credentials.
+The unit tests cover the host format, the stored row, which area receives which host, the admin form payload, and the hosts the collector appends to the header. They do not boot Magento, so they run without `repo.magento.com` credentials.
 
 ```bash
 phpunit -c phpunit.xml.dist
@@ -97,7 +99,7 @@ GitHub Actions runs both on PHP 8.1, 8.2 and 8.3.
 
 ## Author
 
-Bruna Sebold — sebold.bruna@gmail.com
+Bruna Sebold
 
 ## License
 

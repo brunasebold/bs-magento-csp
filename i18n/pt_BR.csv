@@ -12,6 +12,7 @@
 "The host could not be removed.","Não foi possível remover o host."
 "%1 hosts were removed. Refresh the full page cache so cached pages send the new policy.","Foram removidos %1 hosts. Atualize o cache de página inteira para as páginas em cache enviarem a nova política."
 "Set whether the host is active.","Informe se o host fica ativo."
+"The host was updated. Refresh the full page cache so cached pages send the new policy.","O host foi atualizado. Atualize o cache de página inteira para as páginas em cache enviarem a nova política."
 "%1 hosts were updated. Refresh the full page cache so cached pages send the new policy.","Foram atualizados %1 hosts. Atualize o cache de página inteira para as páginas em cache enviarem a nova política."
 "CSP Whitelist","Liberação de CSP"
 "Edit Host","Editar host"

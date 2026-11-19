@@ -22,13 +22,13 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
             return [];
         }
 
-        $confirm = (string) __('Remove this host from the policy?');
-        $url = $this->getUrl('*/*/delete', ['whitelist_id' => $id]);
+        $confirm = addcslashes((string) __('Remove this host from the policy?'), "'\\");
+        $url = addcslashes($this->getUrl('*/*/delete', ['whitelist_id' => $id]), "'\\");
 
         return [
             'label' => __('Delete'),
             'class' => 'delete',
-            'on_click' => 'deleteConfirm(\'' . $confirm . '\', \'' . $url . '\')',
+            'on_click' => "deleteConfirm('" . $confirm . "', '" . $url . "', {\"data\": {}})",
             'sort_order' => 20,
         ];
     }

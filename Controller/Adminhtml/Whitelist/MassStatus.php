@@ -16,11 +16,12 @@ use BS\MagentoCsp\Model\ResourceModel\Whitelist as WhitelistResource;
 use BS\MagentoCsp\Model\ResourceModel\Whitelist\Grid\CollectionFactory;
 use BS\MagentoCsp\Model\WhitelistFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Ui\Component\MassAction\Filter;
 use Psr\Log\LoggerInterface;
 
-class MassStatus extends Whitelist
+class MassStatus extends Whitelist implements HttpPostActionInterface
 {
     public function __construct(
         Context $context,
@@ -68,7 +69,13 @@ class MassStatus extends Whitelist
             return $redirect;
         }
 
-        if ($updated) {
+        if ($updated === 1) {
+            $this->messageManager->addSuccessMessage(
+                __(
+                    'The host was updated. Refresh the full page cache so cached pages send the new policy.'
+                )
+            );
+        } elseif ($updated > 1) {
             $this->messageManager->addSuccessMessage(
                 __(
                     '%1 hosts were updated. Refresh the full page cache so cached pages send the new policy.',

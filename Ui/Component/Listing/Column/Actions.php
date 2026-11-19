@@ -53,6 +53,7 @@ class Actions extends Column
                         ['whitelist_id' => $item['whitelist_id']]
                     ),
                     'label' => __('Delete'),
+                    'post' => true,
                     'confirm' => [
                         'title' => __('Delete host'),
                         'message' => __('Remove this host from the policy?'),

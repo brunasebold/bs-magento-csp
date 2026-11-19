@@ -12,7 +12,6 @@ declare(strict_types=1);
 $autoload = dirname(__DIR__) . '/vendor/autoload.php';
 if (is_file($autoload)) {
     require $autoload;
-    return;
 }
 
 spl_autoload_register(static function (string $class): void {
@@ -22,6 +21,13 @@ spl_autoload_register(static function (string $class): void {
     }
     $relative = str_replace('\\', '/', substr($class, strlen($prefix)));
     $path = dirname(__DIR__) . '/' . $relative . '.php';
+    if (is_file($path)) {
+        require $path;
+    }
+});
+
+spl_autoload_register(static function (string $class): void {
+    $path = __DIR__ . '/Double/' . str_replace('\\', '/', $class) . '.php';
     if (is_file($path)) {
         require $path;
     }

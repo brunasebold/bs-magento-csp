@@ -12,9 +12,10 @@ declare(strict_types=1);
 namespace BS\MagentoCsp\Controller\Adminhtml\Whitelist;
 
 use BS\MagentoCsp\Controller\Adminhtml\Whitelist;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 
-class NewAction extends Whitelist
+class NewAction extends Whitelist implements HttpGetActionInterface
 {
     public function execute()
     {
