@@ -1,6 +1,6 @@
 # BS_MagentoCsp
 
-[![CI](https://github.com/brunasebold/bs-magento-csp/actions/workflows/ci.yml/badge.svg)](https://github.com/brunasebold/bs-magento-csp/actions/workflows/ci.yml)
+![CI](https://github.com/brunasebold/bs-magento-csp/actions/workflows/ci.yml/badge.svg)
 
 Manage Content Security Policy hosts from the Magento admin. The store sends them on the CSP header without a deploy and without editing `csp_whitelist.xml`.
 
@@ -35,7 +35,7 @@ Copy this directory to `app/code/BS/MagentoCsp`. To install it with Composer fro
 
 ```bash
 composer config repositories.bs-magento-csp vcs https://github.com/brunasebold/bs-magento-csp.git
-composer require bs/module-magento-csp
+composer require brunasebold/module-magento-csp
 ```
 
 Then enable it:

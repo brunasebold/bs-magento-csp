@@ -1,5 +1,5 @@
 {
-    "name": "bs/module-magento-csp",
+    "name": "brunasebold/module-magento-csp",
     "description": "Manage Magento Content Security Policy hosts from the admin and send them on the CSP header without a deploy.",
     "type": "magento2-module",
     "license": "MIT",
