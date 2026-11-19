@@ -54,6 +54,8 @@ The module ships with an empty whitelist.
 
 **Stores > CSP Whitelist** (`Lojas > Liberação de CSP` with `pt_BR`).
 
+![CSP Whitelist grid in the Magento admin](docs/admin-whitelist.jpg)
+
 The permission is **CSP Whitelist**, under **Stores**.
 
 | Field | What to enter |

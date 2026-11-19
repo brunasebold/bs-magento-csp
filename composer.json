@@ -42,5 +42,10 @@
     "scripts": {
         "test": "phpunit -c phpunit.xml.dist",
         "phpcs": "phpcs"
-    }
+    },
+    "repositories": [{
+        "name": "bs-magento-csp",
+        "type": "vcs",
+        "url": "https://github.com/brunasebold/bs-magento-csp.git"
+    }]
 }
